@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Data</title>
+</head>
+<body>
+
+<h1 id="title">Feel free to pick your favourite movie</h1>
+<form id="form">
+  <input type="text" id="search" [(ngModel)]="searchQuery" placeholder="Search for a movie" [ngModelOptions]="{standalone: true}">
+  <button (click)="searchMovies()" class="btn btn-primary">Search</button>
+<p class="info-message">{{ rankMessage }}</p>
+
+
+</form>
+
+<table id="table">
+    <tr>
+      <th class="head-data">Title</th>
+      <th class="head-data">Rank</th>
+      <th class="head-data">ID</th>
+    </tr>
+    <tr *ngFor="let movie of movies">
+      <td class="data-line">{{ movie.title }}</td>
+      <td class="data-line">{{ movie.rank }}</td>
+      <td class="data-line">{{ movie.id }}</td>
+    </tr>
+  </table>
+  
+</body>
+</html>
